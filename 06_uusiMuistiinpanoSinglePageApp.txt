@@ -1,0 +1,25 @@
+https://www.websequencediagrams.com
+
+title 0.6: Uusi muistiinpano Single Page App -sivulle
+
+note over selain:
+jatkuu harjoituksen 0.5 tilanteesta, 
+eli selain on ladannut sivun, käyttäjä
+kirjoittaa viestin "Test again" ja painaa
+"Save"
+end note
+
+selain->palvelin: HTTP POST  https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin-->selain: 201 CREATED
+
+
+note over selain:
+palvelimen lähettämän viestin tyyppi on "xhr"
+Viestin rungossa on JSON tiedot:
+{
+    "message": "note created"
+}
+
+Ruudulla viestiluettelon lopussa 
+on uusin viesti "Test again"
+end note

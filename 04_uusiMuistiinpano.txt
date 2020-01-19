@@ -1,0 +1,28 @@
+title 0.4: uusi muistiinpano
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+palvelin-->selain: 302 Found (uudelleenohjaus -> /notes)
+
+note over selain:
+selain tekee automaattisesti
+uuden GET-pyynnön /notes -osoitteeseen
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: main.js
+
+note over selain:
+selain suorittaa js-koodin,
+joka pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: [{"content": "Who ate the cheese?", "date": "2020-01-19T21:09:33.318Z" }, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän,
+joka renderöi muistiinpanot näytölle
+end note
